@@ -1,6 +1,6 @@
-
+```
 /*
- * WEBUI SHELL for use with µtorrent and its webui - http://www.utorrent.com
+ * WEBUI SHELL for use with ï¿½torrent and its webui - http://www.utorrent.com
  *
  * Version 0.5.0
  *
@@ -25,21 +25,19 @@
  * File Author:
  * 		Tjores Maes (lordalderaan@gmail.com)
  */
+```
 
-MINIMUM SOFTWARE REQUIREMENTS:
-µtorrent 1.8
-	webui
-Apache 1.3 or IIS 6
-	mod_rewrite (only for Apache) or Ionic Isapi Rewrite (only for IIS, other IIS rewriters might work too)
-PHP 5.2.6
-	php_curl
-	php_sqlite or php_mysql
-		php_pdo (only for sqlite)
-	php_gd2 (optional, without it disabled buttons won't be removed from the toolbar.)
+## MINIMUM SOFTWARE REQUIREMENTS ##
+* torrent 1.8
+	* webui
+* Apache 1.3 or IIS 6
+	* mod_rewrite (only for Apache) or Ionic Isapi Rewrite (only for IIS, other IIS rewriters might work too)
+* PHP 5.2.6
+	* php_curl
+	* php_sqlite or php_mysql
+	* php_gd2 (optional, without it disabled buttons won't be removed from the toolbar.)
 
-__________________________________________________________________________________________
-
-INSTALLATION:
+## INSTALLATION ##
 
 First make sure the above software is properly installed.
 See the following websites for help about that because I'm not gonna cover it here:
@@ -47,19 +45,17 @@ http://www.utorrent.com
 http://httpd.apache.org/
 http://www.php.net/
 
-IIS is on the Windows Installation CD.
 Ionic Isapi Rewriter is available from http://cheeso.members.winisp.net/IIRF.aspx
 
+Note: It is technically possible to run ï¿½torrent + webui on one machine and Apache/IIS + PHP + Webui Shell on a separate machine. Handy for seed boxes that don't allow you to change the Apache/IIS configuration.
 
-Note: It is technically possible to run µtorrent + webui on one machine and Apache/IIS + PHP + Webui Shell on a separate machine. Handy for seed boxes that don't allow you to change the Apache/IIS configuration.
-
-==µtorrent==
-In µtorrent make sure the webui is enabled and you have setup a username and password.
+### ï¿½torrent ###
+In ï¿½torrent make sure the webui is enabled and you have setup a username and password.
 For extra security you could add the IP of the computer running the Webui Shell to the restricted list.
-This would be 127.0.0.1 if µtorrent and the Webui Shell are on the same computer.
+This would be 127.0.0.1 if ï¿½torrent and the Webui Shell are on the same computer.
 This way you pretty much ensure that the webui is only accessible using the Webui Shell.
 
-==Apache== (skip if you want to use IIS)
+### Apache ### (skip if you want to use IIS)
 You need to open the Apache configuration file.
 
 For Apache on windows this file is usually called httpd.conf and can be found in the conf dir in the Apache install folder.
@@ -97,7 +93,7 @@ In that case retrace your steps. Check the error.log in the logs folder in the a
 And otherwise come crying on the applicable thread on the webui forum.
 
 
-==IIS== (skip if you already use Apache)
+### IIS ### (skip if you already use Apache)
 Installing IIS is done through Add or Remove Programs in the windows Configuration Panel. Enable Internet Information Services in the Add/Remove Windows Components section (found under Application Server in 2003).
 
 It is recommended to manually install PHP for IIS.
@@ -137,7 +133,7 @@ Open up Internet Services Manager and find the website you plan to install the s
 website). The default web site is named "Default Web Site." Right click on it and go to properties. Click on the
 ISAPI Filters tab and click add. Filter name = Ionic Rewriter. Click browse and goto and select the ISAPIRewrite4.dll file.
 
-==PHP==
+### PHP ###
 Check PHP.ini (location can vary) to make sure the needed extensions are enabled:
 
 To enable the curl extension find the "extension=php_curl.dll" line and make sure it has no # in front of it.
@@ -157,7 +153,7 @@ To enable the mysql extension find the "extension=php_mysql.dll" line and make s
 If you use windows you might also need to copy libmysql.dll to the system32 folder to get it working (not recommended otherwise).
 http://www.php.net/manual/en/mysql.installation.php
 
-==Webui Shell==
+### Webui Shell ###
 Extract the Webui Shell package to the root of your webserver.
 
 This should create the webui_shell folder in the root. Go into it and open the config.php in the text editor of your preference.
@@ -189,9 +185,7 @@ $cfg['db_file']='sql_users.dat' is the name of the file that will contain the sq
 
 Save the file and close it.
 
-__________________________________________________________________________________________
-
-ADMIN PANEL:
+## ADMIN PANEL ##
 
 Now browse to http://youripordomain/gui/
 
@@ -207,7 +201,7 @@ The text in the element will turn red while the change is being made. Then you w
 As long as the text is red it has not yet been saved.
 
 
-==Instances==
+### Instances ###
 If you just installed the Webui Shell you need to setup a utorrent instance first so we will start with explaining that panel.
 
 To open this panel you click on the Instances link at the top of the page (obviously).
@@ -237,7 +231,7 @@ If you enabled the webui alternative port in utorrent you should use that, other
 The username and password are those you setup in the webui settings of utorrent.
 
 
-==Users==
+### Users ###
 In this panel you setup users for the Webui Shell.
 
 To open this panel you click on the Users link at the top of the page (obviously).
@@ -304,7 +298,7 @@ Quota_Max_Combinedsize - Set the max number of bytes this user is allowed to hav
 The actions section is for advanced users only.
 This allows you to manually allow or block actions that the Webui Shell doesn't know (yet).
 The webui backend might have options that aren't public yet or in the future this webui might not be up to date with the newest actions.
-For more info about this see the thread on the µtorrent forums: http://forum.utorrent.com/viewtopic.php?id=46830
+For more info about this see the thread on the ï¿½torrent forums: http://forum.utorrent.com/viewtopic.php?id=46830
 To create a new action simply fill in the action in the input box and press [Enter].
 You can then allow it or disallowed it using the tick box.
 To delete an action you click the X next in the delete column.
@@ -314,13 +308,13 @@ This list is irrelevant for this user if Show_All_Torrents is enabled.
 However if other users on this instance have Show_Unclaimed_Torrents enabled then torrents listed here count as Claimed.
 
 To add a torrent open the pull-down list and pick a torrent. It will be added immediately.
-The pull-down list is updated every time a user gets it from (this instance of) µtorrent.
+The pull-down list is updated every time a user gets it from (this instance of) ï¿½torrent.
 So to update (or fill if it is empty) this list login with this user or a user on the same instance.
 
 To remove a torrent from this user click the X in the Delete column.
 
 
-==Fails==
+### Fails ###
 In this panel you can see blocked actions and error messages users had.
 
 To open this panel you click on the Fails link at the top of the page (obviously).
@@ -335,7 +329,7 @@ For example if a user tries to add a torrent while he/she isn't allowed to the w
 This is mostly for debugging purposes but maybe handy if you want to keep an eye on the things your users do and try.
 
 
-==Misc==
+### Misc ###
 In this panel has miscellaneous options.
 
 To open this panel you click on the Misc link at the top of the page (obviously).
@@ -350,22 +344,20 @@ This button will take them directly to the MiniUI when they login while the norm
 To disable the MiniUI button clear the subdir by pressing the X in the Delete column.
 
 
-__________________________________________________________________________________________
+## COMMON PROBLEMS ##
+**When logging in as a user I see {"build":0,"error":"SHELL: cURL error: couldn't connect to host"}**
+This happens when the Webui Shell cannot connect to ï¿½torrent+webui.
+Make sure that ï¿½torrent is running and that the domain and port of that user's instance are correct.
 
-COMMON PROBLEMS:
-When logging in as a user I see {"build":0,"error":"SHELL: cURL error: couldn't connect to host"}
-This happens when the Webui Shell cannot connect to µtorrent+webui.
-Make sure that µtorrent is running and that the domain and port of that user's instance are correct.
-
-When logging in as a user I see {"build":0,"error":"SHELL: Configuration Error: Wrong login details."}
-This happens when the Webui Shell reached µtorrent+webui but the login information was rejected.
+**When logging in as a user I see {"build":0,"error":"SHELL: Configuration Error: Wrong login details."}**
+This happens when the Webui Shell reached ï¿½torrent+webui but the login information was rejected.
 Make sure the username and password of that user's instance are correct.
 
-When logging in as a user I see {"build":0,"error":"SHELL: Configuration Error: Invalid request."}
-This happens when the Webui Shell reached µtorrent but got a Invalid request error.
-Make sure the webui is enabled in µtorrent.
-Make sure that if you enabled the webui alternative port in µtorrent that you used that port in that user's instance.
-Make sure that the restricted list in µtorrent is either empty or that the IP of the computer running the Webui Shell is in the list.
+**When logging in as a user I see {"build":0,"error":"SHELL: Configuration Error: Invalid request."}**
+This happens when the Webui Shell reached ï¿½torrent but got a Invalid request error.
+Make sure the webui is enabled in ï¿½torrent.
+Make sure that if you enabled the webui alternative port in ï¿½torrent that you used that port in that user's instance.
+Make sure that the restricted list in ï¿½torrent is either empty or that the IP of the computer running the Webui Shell is in the list.
 
 If you have any questions, requests or feedback please contact me on the forums. I will not reply to emails.
 http://forum.utorrent.com/viewtopic.php?id=46830
